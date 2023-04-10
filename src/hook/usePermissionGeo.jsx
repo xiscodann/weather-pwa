@@ -19,7 +19,12 @@ export const usePermissionGeo = () => {
     };
     reverseCity().then((res) => {
       const { name, country } = res[0];
-      setUserLocation({ latitude, longitude, city: name, country });
+      setUserLocation({
+        latitude,
+        longitude,
+        city: name.split(' ')[0],
+        country,
+      });
     });
   };
   const errorPosition = (error) => {
@@ -30,7 +35,7 @@ export const usePermissionGeo = () => {
   useEffect(() => {
     navigator.permissions.query({ name: 'geolocation' }).then((result) => {
       const { state } = result;
-      if (state === 'denied' || state === 'prompt') setDenied(true);
+      if (state === 'denied') setDenied(true);
       navigator.geolocation.getCurrentPosition(revealPosition, errorPosition);
     });
   }, []);

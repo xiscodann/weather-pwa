@@ -1,0 +1,105 @@
+.weather {
+  $parent: &;
+  height: 100vh;
+  & > div {
+    height: 100%;
+    padding: 0 10%;
+  }
+  &__format {
+    &--temp {
+      font-size: 10rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+    &--description {
+      font-size: 1.5rem;
+      opacity: 0.8;
+    }
+    &--country {
+      font-size: 1.5rem;
+      opacity: 0.8;
+    }
+    &--time {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+  }
+}
+
+.thunderstorm {
+  $parent: &;
+  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+  color: #fff;
+  &.night {
+    background-image: linear-gradient(360deg, #29323c 0%, #485563 100%);
+  }
+}
+.drizzle {
+  background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+  color: #384d64;
+  &.night {
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    color: #fff;
+  }
+}
+.rain {
+  background-image: linear-gradient(
+    -180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  background-blend-mode: lighten;
+  color: #384d64;
+  &.sunset {
+    background: linear-gradient(-180deg, #bcc5ce 0%, #929ead 98%),
+      radial-gradient(
+        at top left,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+      );
+    background-blend-mode: screen;
+  }
+  &.night {
+    background-image: linear-gradient(0deg, #29323c 0%, #485563 100%);
+    color: #fff;
+  }
+}
+.clear {
+  background-image: linear-gradient(to right, #48c6ef 0%, #6fb1d6 100%);
+  color: #fff;
+  &.sunrise {
+    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+  }
+  &.sunset {
+    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+  }
+  &.night {
+    background-image: linear-gradient(
+      to top,
+      #1e3c72 0%,
+      #1e3c72 1%,
+      #2a5298 100%
+    );
+  }
+}
+.clouds,
+.atmosphere,
+.snow {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  color: #384d64;
+  &.sunrise {
+    background-image: linear-gradient(
+      to top,
+      #f3e7e9 0%,
+      #e3eeff 99%,
+      #e3eeff 100%
+    );
+  }
+  &.sunset {
+    background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+  }
+  &.night {
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    color: #fff;
+  }
+}
