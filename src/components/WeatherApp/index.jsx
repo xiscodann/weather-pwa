@@ -1,5 +1,11 @@
 import React from 'react';
+import './style.scss';
 import { getSunTime } from '../../helpers/getSunTime';
+import BrokenClouds from '../BrokenClouds';
+import ShowerRain from '../ShowerRain';
+import Thunderstorm from '../Thunderstorm';
+import Clear from '../Clear';
+import Mist from '../Mist';
 
 const WeatherApp = ({ dataWeather }) => {
   if (dataWeather) {
@@ -16,14 +22,15 @@ const WeatherApp = ({ dataWeather }) => {
     });
     const date = new Date(dateUserTimeZone);
     console.log(dataWeather);
+    const image = `${weather[0]?.main.toLowerCase()}-${weather[0]?.id}.jpg`;
     return (
       <article className='weather'>
         <div
-          className={`grid grid-cols-2 ${weather[0]?.main.toLowerCase()} ${getSunTime(
+          className={`grid grid-cols-2 weather__${getSunTime(
             sys?.sunrise,
             sys?.sunset,
             date
-          )} ${weather[0]?.id}`}
+          )}`}
         >
           <div className='flex justify-center items-start flex-col weather__format'>
             <p className='weather__format--temp'>
@@ -45,11 +52,19 @@ const WeatherApp = ({ dataWeather }) => {
               | {date.toLocaleDateString('en-US', options)}
             </p>
             <div className='h-4/5 w-full flex items-center justify-center weather__format--image'>
-              <img
-                src={`https://openweathermap.org/img/wn/${weather[0].icon}@4x.png`}
-              />
+              <Mist />
             </div>
           </div>
+          <div
+            className={`${weather[0]?.main.toLowerCase()} ${getSunTime(
+              sys?.sunrise,
+              sys?.sunset,
+              date
+            )}`}
+            style={{
+              backgroundImage: `url('/src/assets/images/${image}')`,
+            }}
+          ></div>
         </div>
       </article>
     );
