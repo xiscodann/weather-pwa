@@ -1,8 +1,9 @@
 import React from 'react';
+import './style.scss';
 
 const ScatteredCloud = () => (
-  <div class='icon cloudy'>
-    <div class='cloud'></div>
+  <div className='icon cloudy'>
+    <div className='cloud'></div>
   </div>
 );
 

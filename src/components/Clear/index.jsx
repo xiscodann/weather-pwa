@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Clear = () => (
-  <div class='icon sunny'>
-    <div class='sun'>
-      <div class='rays'></div>
+  <div className='icon sunny'>
+    <div className='sun'>
+      <div className='rays'></div>
     </div>
   </div>
 );

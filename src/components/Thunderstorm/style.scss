@@ -1,3 +1,6 @@
+$cloudColor: #c8c9ca;
+$thunderColor: #39475e;
+
 .cloud {
   position: absolute;
   z-index: 1;
@@ -6,11 +9,11 @@
   width: 3.6875em;
   height: 3.6875em;
   margin: -1.84375em;
-  background: currentColor;
+  background: $cloudColor;
   border-radius: 50%;
-  box-shadow: -2.1875em 0.6875em 0 -0.6875em, 2.0625em 0.9375em 0 -0.9375em,
-    0 0 0 0.375em #fff, -2.1875em 0.6875em 0 -0.3125em #fff,
-    2.0625em 0.9375em 0 -0.5625em #fff;
+  box-shadow: -2.1875em 0.6875em 0 -0.6875em $cloudColor,
+    2.0625em 0.9375em 0 -0.9375em $cloudColor, 0 0 0 0.375em #fff,
+    -2.1875em 0.6875em 0 -0.3125em #fff, 2.0625em 0.9375em 0 -0.5625em #fff;
 }
 .cloud:after {
   content: '';
@@ -20,7 +23,7 @@
   display: block;
   width: 4.5625em;
   height: 1em;
-  background: currentColor;
+  background: $cloudColor;
   box-shadow: 0 0.4375em 0 -0.0625em #fff;
 }
 .cloud:nth-child(2) {
@@ -44,7 +47,7 @@
   width: 2.5em;
   height: 2.5em;
   margin: -1.25em;
-  background: currentColor;
+  background: $cloudColor;
   border-radius: 50%;
   box-shadow: 0 0 0 0.375em #fff;
   animation: spin 12s infinite linear;
@@ -83,7 +86,6 @@
   margin: -2em 1em;
 }
 
-.rain,
 .lightning,
 .snow {
   position: absolute;
@@ -93,7 +95,7 @@
   width: 3.75em;
   height: 3.75em;
   margin: 0.375em 0 0 -2em;
-  background: currentColor;
+  background: transparent;
 }
 
 .bolt {
@@ -101,8 +103,8 @@
   top: 50%;
   left: 50%;
   margin: -0.25em 0 0 -0.125em;
-  color: #fff;
-  opacity: 0.3;
+  color: $thunderColor;
+  opacity: 1;
   animation: lightning 2s linear infinite;
 }
 .bolt:nth-child(2) {
@@ -110,7 +112,7 @@
   height: 0.25em;
   margin: -1.75em 0 0 -1.875em;
   transform: translate(2.5em, 2.25em);
-  opacity: 0.2;
+  opacity: 0.6;
   animation: lightning 1.5s linear infinite;
 }
 .bolt:before,
@@ -152,18 +154,34 @@
 
 @keyframes lightning {
   45% {
-    color: #fff;
-    background: #fff;
-    opacity: 0.2;
+    color: $thunderColor;
+    background: $thunderColor;
+    opacity: 1;
+  }
+  48% {
+    opacity: 0.5;
   }
   50% {
-    color: #0cf;
-    background: #0cf;
+    color: #fff;
+    background: #fff;
     opacity: 1;
   }
   55% {
-    color: #fff;
-    background: #fff;
-    opacity: 0.2;
+    color: $thunderColor;
+    background: $thunderColor;
+    opacity: 1;
+  }
+}
+
+@keyframes cloud {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translate(-200%, -3em);
   }
 }

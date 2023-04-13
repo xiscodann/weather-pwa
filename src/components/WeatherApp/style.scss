@@ -24,8 +24,44 @@
     height: 100%;
     padding: 0 10%;
   }
-  &__night {
+  &__thunderstorm {
+    color: #e1f1ff;
+    &.night {
+      color: #fff;
+    }
+  }
+  &__drizzle {
+    color: #2d3c5c;
+    &.night {
+      color: #fff;
+    }
+  }
+  &__rain {
+    color: #565656;
+    &.night {
+      color: #fff;
+    }
+  }
+  &__snow {
+    color: #565656;
+    &.night {
+      color: #fff;
+    }
+  }
+  &__atmosphere {
+    color: #1e3650;
+    &.night {
+      color: #fff;
+    }
+  }
+  &__clear {
     color: #fff;
+  }
+  &__clouds {
+    color: #1e3650;
+    &.night {
+      color: #fff;
+    }
   }
   &__format {
     &--temp {

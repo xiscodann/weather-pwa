@@ -1,11 +1,7 @@
 import React from 'react';
 import './style.scss';
 import { getSunTime } from '../../helpers/getSunTime';
-import BrokenClouds from '../BrokenClouds';
-import ShowerRain from '../ShowerRain';
-import Thunderstorm from '../Thunderstorm';
-import Clear from '../Clear';
-import Mist from '../Mist';
+import AnimatedIcon from '../AnimatedIcons';
 
 const WeatherApp = ({ dataWeather }) => {
   if (dataWeather) {
@@ -26,7 +22,7 @@ const WeatherApp = ({ dataWeather }) => {
     return (
       <article className='weather'>
         <div
-          className={`grid grid-cols-2 weather__${getSunTime(
+          className={`grid grid-cols-2 weather__${weather[0]?.main.toLowerCase()} ${getSunTime(
             sys?.sunrise,
             sys?.sunset,
             date
@@ -52,7 +48,7 @@ const WeatherApp = ({ dataWeather }) => {
               | {date.toLocaleDateString('en-US', options)}
             </p>
             <div className='h-4/5 w-full flex items-center justify-center weather__format--image'>
-              <Mist />
+              <AnimatedIcon icon={weather[0]?.icon} />
             </div>
           </div>
           <div
